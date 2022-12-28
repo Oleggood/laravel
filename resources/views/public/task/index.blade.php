@@ -35,13 +35,22 @@
 
                 <td>
                         @foreach ($task->users as $user)
-                            <span>{{$user->nickname}}</span><span>({{$user->surname}} {{$user->name}})</span>
+                            <span>{{$user->surname}} {{$user->name}} ({{$user->nickname}})</span>
                             <br>
                         @endforeach
                 </td>
 
-                <td>{{date('d.m.Y', strtotime($task->deadline));}}</td>
+                <td>
+                    <span style="
+                        @if ($task->deadline <= today())
+                           {{$color_text}}
+                        @endif
+                        ">{{date('d.m.Y', strtotime($task->deadline));}}
+                    </span>
+                </td>
+
                 <td>{{$task->status->status}}</td>
+
                 <td>
                     <a href="{{route('task.edit', $task->id)}}">
                         <?xml version="1.0" ?><!DOCTYPE svg  PUBLIC '-//W3C//DTD SVG 1.1//EN'>

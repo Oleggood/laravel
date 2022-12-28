@@ -30,27 +30,23 @@
         <select name="task_status_id">
             @foreach ($statuses as $status)
                 <option {{$status->id === $task->status->id ? 'selected' : ''}}
-                value="{{$status->id}}">
-                {{$status->status}}
+                        value="{{$status->id}}">
+                    {{$status->status}}
                 </option>
             @endforeach
         </select>
         <br>
         <div>Исполнители</div>
         <br>
-
-
-{{--
-    TODO - посмотри видос по чекбоксам? Почему old НЕ ПАШЕТ????
-    --}}
-
-    @foreach ($allUsers as $user)
-
-        <p><input type="checkbox" name="users[]" value="{{$user->id}}"
-            @checked(old('users[]', $user->id)) />
-        <span> -{{$user->nickname}} ({{$user->name}})</span></p>
-    @endforeach
-
+            @foreach ($allUsers as $user)
+                <p>
+                    <input type="checkbox" name="users[]" value="{{$user->id}}"
+                        @foreach ($task->users as $item)
+                            @checked($user->id === $item->id)
+                        @endforeach/>
+                    <span>{{$user->surname}} {{$user->name}} ({{$user->nickname}})</span>
+                </p>
+            @endforeach
 
 
         <br><br>

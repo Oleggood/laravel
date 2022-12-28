@@ -11,25 +11,19 @@ use App\Http\Requests\StoreTaskRequest;
 
 class TaskController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         $task = Task::all();
+        $color_text = 'color:red'; //todo - сделать через тернарный оператор или ИФ
         return view('public.task.index', [
             'tasks' =>  $task,
             'main_header' => 'Контроль управленческих решений',
+            'color_text' => $color_text,
         ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
         $statuses = Status::all();
@@ -74,12 +68,7 @@ class TaskController extends Controller
         //не используется
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Task  $task
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit(Task $task)
     {
         $statuses = Status::all();
