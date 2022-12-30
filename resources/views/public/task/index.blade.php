@@ -26,7 +26,7 @@
         @foreach ($tasks as $task)
             <tr>
                 <td>{{$task->id}}</td>
-                <td>{{date('d.m.Y', strtotime($task->task_date));}}</td>
+                <td>{{date('d.m.Y', strtotime($task->task_date))}}</td>
                 <td>{{$task->number}}</td>
                 <td>{{$task->task_name}}</td>
                 <td>{{$task->item}}</td>

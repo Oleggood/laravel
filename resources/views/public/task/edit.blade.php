@@ -12,19 +12,31 @@
 
         <div>Дата задачи (документа)</div>
         <input type="date" name="task_date" value="{{$task->task_date}}">
+        @error('task_date')
+        <i><span style="{{$text_error}}">{{$err_message}}</span></i>
+        @enderror
         <div>Номер документа</div>
         <input type="text" name="number" value="{{$task->number}}">
         <div>Наименование документа/поручения</div>
         <input type="text" name="task_name" value="{{$task->task_name}}">
+        @error('task_name')
+        <i><span style="{{$text_error}}">{{$err_message}}</span></i>
+        @enderror
         <div>Пункт</div>
         <input type="text" name="item" value="{{$task->item}}">
         <div>Текст поручения</div>
         <textarea name="task">{{$task->task}}</textarea>
+        @error('task')
+        <i><span style="{{$text_error}}">{{$err_message}}</span></i>
+        @enderror
         <div>Примечание</div>
         <textarea name="note">{{$task->note}}</textarea>
         <br>
         <div>Крайняя дата исполнения</div>
         <input type="date" name="deadline" value="{{$task->deadline}}">
+        @error('deadline')
+        <i><span style="{{$text_error}}">{{$err_message}}</span></i>
+        @enderror
         <br>
         <div>Статус задачи</div>
         <select name="task_status_id">

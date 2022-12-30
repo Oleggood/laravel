@@ -15,7 +15,7 @@ class TaskController extends Controller
     public function index()
     {
         $task = Task::all();
-        $color_text = 'color:red'; //todo - сделать через тернарный оператор или ИФ
+        $color_text = 'color:red';
         return view('public.task.index', [
             'tasks' =>  $task,
             'main_header' => 'Контроль управленческих решений',
@@ -33,6 +33,8 @@ class TaskController extends Controller
             'main_header' => 'Добавить задачу',
             'statuses' => $statuses,
             'users' => $users,
+            'text_error' => 'color:red',
+            'err_message' => 'Поле обязательно для заполнения',
         ]);
 
     }
@@ -79,6 +81,8 @@ class TaskController extends Controller
             'statuses' => $statuses,
             'task' => $task,
             'allUsers' => $allUsers,
+            'text_error' => 'color:red',
+            'err_message' => 'Поле обязательно для заполнения',
         ]);
     }
 
