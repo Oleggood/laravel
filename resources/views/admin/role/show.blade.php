@@ -2,6 +2,7 @@
 
 @section('page_header')
     Роль:
+    <p style="color: red">Внимание! Изменение ID/удаление ролей пользователей может привести к потере работоспособности всей системы!</p>
 @endsection
 
 @section('content')
