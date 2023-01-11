@@ -14,7 +14,7 @@
                    <div>
                         <ul>
                             <li><a href="{{route('task.index')}}">Задачи</a></li>
-                            <li><a href="#">Исполнители</a></li>
+                            <li><a href="{{route('executor.index')}}">Исполнители</a></li>
 
                         </ul>
                     </div>
@@ -24,6 +24,7 @@
     </header>
     <hr>
     @yield('page_header')
+    @yield('filter')
     @yield('content')
 
 </body>

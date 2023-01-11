@@ -53,9 +53,15 @@ Route::controller(DepartmentController::class)->prefix('admin/departments')->nam
 use App\Http\Controllers\PositionController;
 Route::resource('admin/positions', PositionController::class);
 
-//Задачи:
+//Задачи (для ОПиК):
 use App\Http\Controllers\TaskController;
 Route::resource('task', TaskController::class);
+
+//Исполнители (для ОПиК):
+use App\Http\Controllers\ExecutorController;
+Route::resource('executor', ExecutorController::class)->only([
+    'index', 'show',
+]);
 
 //Статусы задач:
 use App\Http\Controllers\StatusController;

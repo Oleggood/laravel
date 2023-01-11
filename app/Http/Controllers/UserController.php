@@ -44,7 +44,7 @@ class UserController extends Controller
     public function show (User $userId) {
 
         return view('admin.user.show', [
-            'user' => $userId, //заменяется на compact('userId') ???
+            'user' => $userId,
         ]);
     }
 
@@ -55,7 +55,7 @@ class UserController extends Controller
         $roles = Role::all();
 
         return view('admin.user.edit', [
-            'user' => $userId, //заменяется на compact('userId') ???
+            'user' => $userId,
             'departments' => $departments,
             'positions' => $positions,
             'roles' => $roles,
