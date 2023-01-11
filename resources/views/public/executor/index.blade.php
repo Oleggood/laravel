@@ -12,7 +12,7 @@
 
     <table>
         <tr>
-            <th><a href="{{route('executor.index')}}">ID</a></th>
+            <th>№</th>
             <th>Кличка</th>
             <th>ФИО</th>
             <th>Подразделение</th>
@@ -24,7 +24,7 @@
 
         @foreach($users as $user)
             <tr>
-                <td>{{$user->id}}</td> {{-- todo - заменить на номер итерации цикла--}}
+                <td>{{$loop->iteration}}</td>
                 <td><a href="{{route('executor.show', $user->id)}}">{{$user->nickname}}</a></td>
                 <td>
                     <a href="{{route('executor.show', $user->id)}}">{{$user->surname}} {{$user->name}} {{mb_substr(($user->patronymic),0,1,"UTF-8")}}.</a></td>

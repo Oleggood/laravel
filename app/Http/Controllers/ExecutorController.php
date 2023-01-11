@@ -2,11 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Executor;
-use App\Models\Task;
-use App\Models\Status;
 use App\Models\User;
-use Illuminate\Http\Request;
 
 class ExecutorController extends Controller
 {
@@ -22,11 +18,14 @@ class ExecutorController extends Controller
     }
 
 
-    public function show(User $user)
+    public function show($user)
     {
+        $oneUser = User::where('id', $user)->with('tasks')->get();
+
         return view('public.executor.show', [
             'main_header' => 'Задачи пользователя',
-            'user' => $user,
+            'oneUser' => $oneUser,
+            'color_text' => 'color:red',
         ]);
     }
 }

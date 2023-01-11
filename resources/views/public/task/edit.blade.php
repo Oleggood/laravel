@@ -29,7 +29,7 @@
         @error('task')
         <i><span style="{{$text_error}}">{{$err_message}}</span></i>
         @enderror
-        <div>Примечание</div>
+        <div>Примечание (рег.№)</div>
         <textarea name="note">{{$task->note}}</textarea>
         <br>
         <div>Крайняя дата исполнения</div>

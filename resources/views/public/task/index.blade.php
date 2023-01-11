@@ -13,23 +13,24 @@
 <h3><a href="{{route('task.create')}}">Добавить задачу</a></h3>
     <table>
         <tr>
-            <th><a href="{{route('task.index')}}">ID</a></th> {{-- todo - заменить на номер итерации цикла--}}
+            <th>№</th>
             <th>Дата док-та (задачи)</th>
             <th>Номер док-та</th>
             <th>Наименование док-та</th>
             <th>Пункт</th>
             <th>Текст поручения</th>
-            <th>Примечание</th>
+            <th>Примечание<br>(рег.№)</th>
             <th>Исполнители</th>
             <th>Крайняя дата исп-ия</th>
             <th>Текущий статус</th>
             <th>Изменить задачу</th>
+            {{-- <th>Создать копию</th> --}} {{-- todo --}}
             <th>Удалить задачу</th>
         </tr>
 
         @foreach ($tasks as $task)
             <tr>
-                <td>{{$task->id}}</td>
+                <td>{{$loop->iteration}}</td>
                 <td>{{date('d.m.Y', strtotime($task->task_date))}}</td>
                 <td>{{$task->number}}</td>
                 <td>{{$task->task_name}}</td>
@@ -66,6 +67,9 @@
                             </svg>
                     </a>
                 </td>
+
+                {{-- <td>Создать копию</td> --}} {{-- todo --}}
+
                 <td>
                     <form action="{{route('task.destroy', $task->id)}}" method="POST">
                         @csrf

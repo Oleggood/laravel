@@ -26,7 +26,7 @@
         @error('task')
         <i><span style="{{$text_error}}">{{$err_message}}</span></i>
         @enderror
-        <div>Примечание</div>
+        <div>Примечание (рег.№)</div>
         <textarea name="note"></textarea>
         <div>Крайняя дата исполнения</div>
         <input type="date" name="deadline" value="{{old('deadline')}}">
