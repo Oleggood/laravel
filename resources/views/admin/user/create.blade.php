@@ -4,6 +4,7 @@
     Добавить пользователя (сотрудника)
 @endsection
 
+{{-- todo - вывести сообщения об ошибках--}}
 
 @section('content')
 <form class="" name="feedback" method="POST" action="{{route('user.store')}}">

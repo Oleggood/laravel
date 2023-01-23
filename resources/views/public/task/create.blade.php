@@ -13,34 +13,33 @@
         <i><span style="{{$text_error}}">{{$err_message}}</span></i>
         @enderror
         <div>Номер документа</div>
-        <input type="text" name="number">
+        <input type="text" name="number" value="{{old('number')}}">
         <div>Наименование документа/поручения</div>
         <input type="text" name="task_name" value="{{old('task_name')}}">
         @error('task_name')
         <i><span style="{{$text_error}}">{{$err_message}}</span></i>
         @enderror
         <div>Пункт</div>
-        <input type="text" name="item">
+        <input type="text" name="item" value="{{old('item')}}">
         <div>Текст поручения</div>
         <textarea name="task">{{old('task')}}</textarea>
         @error('task')
         <i><span style="{{$text_error}}">{{$err_message}}</span></i>
         @enderror
         <div>Примечание (рег.№)</div>
-        <textarea name="note"></textarea>
+        <textarea name="note">{{old('note')}}</textarea>
         <div>Крайняя дата исполнения</div>
         <input type="date" name="deadline" value="{{old('deadline')}}">
         @error('deadline')
         <i><span style="{{$text_error}}">{{$err_message}}</span></i>
         @enderror
 
-{{--        todo - не работает, как надо - не подтягивает старые заполненные данные при ошибке валидации:  --}}
         <div>Исполнители</div>
         @foreach ($users as $user)
             <p>
-                <input type="checkbox" name="users" value="{{$user->id}}"
+                <input type="checkbox" name="users[]" value="{{$user->id}}"
 
-                    @checked(old('users') == $user->id)
+                    @checked(is_array(old('users')) && in_array($user->id, old('users')))
 
                 />
                 <span>{{$user->surname}} {{$user->name}} ({{$user->nickname}})</span>

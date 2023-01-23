@@ -8,7 +8,7 @@
 
     <p>{{$user->surname}} {{$user->name}} {{$user->patronymic}}</p>
 
-    <p>Отображать статусы:</p> {{-- todo - фильтр --}}
+    <p>Отображать статусы:</p> {{-- todo - фильтр должен работать независимо от фильтраций таблицы --}}
     <form action="" method="get">
         @foreach($user->tasks as $userTasks)
             <input type="checkbox" name="{{$userTasks->status->id}}">{{$userTasks->status->status}}

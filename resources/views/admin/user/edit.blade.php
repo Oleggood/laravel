@@ -4,6 +4,8 @@
     Изменить данные пользователя (сотрудника)
 @endsection
 
+{{-- todo - вывести сообщения об ошибках--}}
+
 @section('content')
 <form class="" name="feedback1" method="POST" action="{{route('user.update', $user->id)}}">
     @csrf

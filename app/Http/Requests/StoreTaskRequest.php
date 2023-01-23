@@ -35,7 +35,8 @@ class StoreTaskRequest extends FormRequest
             'note' => ['nullable', 'string'],
             'deadline' => ['required', 'date'],
             'task_status_id' => ['required', 'integer'],
-            'users' => [''],
+            'users' => ['nullable', 'array'],
+            'users.*' => ['nullable', 'integer', 'exists:users,id'],
         ];
     }
 }

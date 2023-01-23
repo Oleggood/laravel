@@ -45,7 +45,7 @@ class TaskController extends Controller
      * @param  \App\Http\Requests\StoreTaskRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreTaskRequest $request)
+    public function store(StoreTaskRequest $request) //todo - работает не правильно (исполнители)
     {
         $item = $request->validated();
         $users = $item['users'];
@@ -53,7 +53,6 @@ class TaskController extends Controller
 
         $task = Task::create($item);
         $task->users()->attach($users);
-
 
 
         return redirect()->route('task.index');
